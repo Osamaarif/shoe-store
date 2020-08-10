@@ -20,10 +20,14 @@ jobs:
       - name: Install Nodejs
         uses: actions/setup-node@v2-beta
         with:
-          node-version: 12
-      
-      - name: action-yarn
-        uses: comchangs/action-yarn@v0.1-beta
+          node-version: 6
+
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install #will run yarn install command
+
+      - name: Build react app
+        run: yarn build
       
       - name: Install Surge
         run: npm install -g surge
