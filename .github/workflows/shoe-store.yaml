@@ -22,9 +22,6 @@ jobs:
         with:
           node-version: 12
 
-      - name: Npm
-        uses: npm install
-      
       - name: Install Surge
         run: npm install -g surge
       
