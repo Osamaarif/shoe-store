@@ -22,6 +22,12 @@ jobs:
         with:
           node-version: 12
 
+      - name: action-yarn
+        uses: comchangs/action-yarn@v0.1-beta  
+        
+      - name: Build
+        uses: yarn build
+
       - name: Install Surge
         run: npm install -g surge
       
