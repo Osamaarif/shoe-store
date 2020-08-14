@@ -20,6 +20,24 @@ import {
   useParams
 } from 'react-router-dom';
 
+function App () {
+  return (
+    <div>
+      <ButtonAppBar />
+      
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path="products" element={<ProductsStage />}>
+          <Route path="/" element={<ShoesIndex />} />
+          <Route path=":slug" element={<LaunchShoe />} />
+        </Route>
+        <Route path="*" element={<NotFound />}/>
+      </Routes>
+    </div>
+  );
+}
+
+
 
 function ButtonAppBar() {
   const useStyles = makeStyles((theme) => ({
@@ -118,23 +136,6 @@ function ProductsStage () {
    );
 }
 
-function App () {
-  return (
-    <div>
-      <ButtonAppBar />
-      
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path="products" element={<ProductsStage />}>
-          <Route path="/" element={<ShoesIndex />} />
-          <Route path=":slug" element={<LaunchShoe />} />
-        </Route>
-        <Route path="*" element={<NotFound />}/>
-      </Routes>
-    </div>
-  );
-}
-
 function NotFound () {
   return (
     <div>
@@ -142,5 +143,6 @@ function NotFound () {
     </div>
   );
 }
+
 
 export default App;
